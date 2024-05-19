@@ -1,0 +1,15 @@
+name: profile
+services:
+  web-app:
+    container_name: 'profile'
+    build: 
+      dockerfile: ./Dockerfile
+    expose: 
+      - "${SERVICE_PORT}"
+    ports:
+     - "${HOST_PORT}:${SERVICE_PORT}"
+    networks:
+      - nginx
+networks:
+  nginx: 
+    external: true
